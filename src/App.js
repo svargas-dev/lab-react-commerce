@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import Heading from './components/Heading';
+import Products from './components/Products';
 import './App.css';
+
+const products = require('./products.json');
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Heading />
+      
+      <div className="product d-flex flex-row flex-wrap justify-content-center m-3">
+        {products.map(product => {
+          const { image, name, colors, unitsLeft } = product;
+          const price = product.price.value / 100;
+
+          return <Products
+            key={name}
+            image={image}
+            name={name}
+            colors={colors}
+            unitsLeft={unitsLeft}
+            price={price}
+            />
+        })}
+      </div>
+
     </div>
   );
 }

@@ -1,0 +1,15 @@
+.navbar {
+  height: 8vh;
+  width: 100%;
+  /* background-color: gray; */
+  display: flex;
+  justify-content: space-between ;
+  align-items: center;
+  border-bottom: 0.05em solid gray;
+}
+
+.navbar img {
+  height: 80%;
+  width: auto;
+  padding: 0.25em;
+}
